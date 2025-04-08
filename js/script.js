@@ -31,5 +31,15 @@ function myFunction(){
 
 btnMostrar.addEventListener("click",function(event) {
     event.preventDefault();
+    let element  = document.createElement("li");
+    element.innerText="Another item"; //Another item
+    element.classList.add('list-group-item', 'p-4'); 
+
+    let element2 = element.cloneNode(true);
     
+    // lista.item(0).before(element);
+    // lista.item(0).prepend(element2);
+
+    lista.item(0).append(element);
+    lista.item(0).after(element2);
 });
