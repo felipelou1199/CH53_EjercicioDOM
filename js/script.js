@@ -12,6 +12,10 @@ let otroElemento = document.querySelector("ul>li");
 
 let otrosElementos = document.querySelectorAll("ul>li");
 
+let txtRFC = document.getElementById("txtRFC");
+let txtTelefono = document.getElementById("txtTelefono");
+let txtCURP = document.getElementById("txtCURP");
+
 console.log(otroElemento);
 console.log(otrosElementos);
 console.log(otrosElementos.length);
@@ -61,3 +65,31 @@ btnMostrar.addEventListener("click",function(event) {
     lista.item(1).insertAdjacentHTML("afterbegin",`<li class="list-group-item p-4 active" >Aother new item</li>`)
     lista.item(1).insertAdjacentHTML("beforeend",`<li class="list-group-item p-4 active" >Aother beforened item last item</li>`)
 });
+
+window.addEventListener("load",function(event){
+        console.log("se termino de cargar la pagina")
+});
+
+function txtToUppter (event){
+    event.preventDefault();
+    event.target.value = event.target.value.trim().toUpperCase();
+};
+
+txtRFC.addEventListener("blur",txtToUppter);//txtRFC
+txtCURP.addEventListener("blur",txtToUppter);//txtCURP
+// blue-> cuando se sale del campo
+// txtRFC.addEventListener("blur",function(event){
+//     event.preventDefault();
+//     // txtRFC.value = txtRFC.value.toUpperCase();
+//     event.target.value = event.target.value.toUpperCase();
+// });//txtRFC
+// blue-> cuando se sale del campo
+// txtCURP.addEventListener("blur",function(event){
+//     event.preventDefault();
+//     txtCURP.value = txtCURP.value.toUpperCase();
+// });//txtCURP
+
+txtTelefono.addEventListener("blur", function(event){
+    event.preventDefault();
+    txtTelefono.value = txtTelefono.value.trim().slice(0,10);
+});//txtTelefono
